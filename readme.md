@@ -15,7 +15,7 @@ This repository serves as a shared common folder for all hackathon-related proje
 To include this repository as a submodule in your project, run the following command:
 
 ```bash
-git submodule add <repository-url> common
+git submodule add https://github.com/officers-isdbi/common-isdbi.git common
 ```
 
 ### Updating the Submodule
