@@ -140,6 +140,7 @@ export const UserDocumentSchema = (locale: LanguagesI) => {
 			enabled: booleanSchema(locale),
 			lastLogin: stringDateSchema(locale),
 			createdAt: stringDateSchema(locale),
+			emailValidated: booleanSchema(locale),
 			updatedAt: stringDateSchema(locale),
 			salt: z.string(),
 			_id: mongoIDSchema(locale),
@@ -165,6 +166,7 @@ export const GeneralUserSchema = (locale: LanguagesI) => {
 			phone: phoneSchema(locale),
 			enabled: booleanSchema(locale),
 			lastLogin: stringDateSchema(locale),
+			emailValidated: booleanSchema(locale),
 			isAdmin: booleanSchema(locale),
 		},
 		{
@@ -185,6 +187,7 @@ export const PublicUserBWSSchema = (locale: LanguagesI) => {
 			firstName,
 			lastName,
 			enabled: booleanSchema(locale),
+			emailValidated: booleanSchema(locale),
 			lastLogin: stringDateSchema(locale),
 			isAdmin: booleanSchema(locale),
 		},
