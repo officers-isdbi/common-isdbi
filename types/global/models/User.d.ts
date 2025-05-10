@@ -14,7 +14,6 @@ declare interface UserI<ID = string> extends RegistrationAdminI {
 	_id: ID;
 	enabled: boolean;
 	lastLogin?: Date | string;
-	emailValidated: boolean;
 	isAdmin: boolean;
 }
 declare type PublicUserI = UserI;
