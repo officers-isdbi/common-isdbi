@@ -1,6 +1,5 @@
 import { type MyZodType, z } from '^common/defaultZod';
 import {
-	arraySchema,
 	booleanSchema,
 	emailSchema,
 	mongoIDSchema,
@@ -144,7 +143,7 @@ export const UserDocumentSchema = (locale: LanguagesI) => {
 			updatedAt: stringDateSchema(locale),
 			salt: z.string(),
 			_id: mongoIDSchema(locale),
-			isAdmin: booleanSchema(locale)
+			isAdmin: booleanSchema(locale),
 		},
 		{
 			description: userMessages.document.description[locale],
@@ -211,7 +210,8 @@ export const AuthUserSchema = (locale: LanguagesI) =>
 		}
 	);
 
-export const NecessaryUserSchema = (locale: LanguagesI) => GeneralUserSchema(locale);
+export const NecessaryUserSchema = (locale: LanguagesI) =>
+	GeneralUserSchema(locale);
 
 /* --------------------------------- User Register Schema --------------------------------- */
 export const userCreateAdminSchema = (locale: LanguagesI) => {
@@ -229,7 +229,7 @@ export const userCreateAdminSchema = (locale: LanguagesI) => {
 			required_error: userMessages.document.required[locale],
 		}
 	);
-}
+};
 export const userRegisterSchema = (locale: LanguagesI) => {
 	const schema = z.object<MyZodType<RegistrationUserI>>(
 		{
@@ -254,7 +254,6 @@ export const userRegisterSchema = (locale: LanguagesI) => {
 	return schema;
 };
 
-
 export const changePasswordSchema = (locale: LanguagesI) => {
 	const schema = z
 		.object<MyZodType<ChangePasswordI>>(
@@ -269,10 +268,14 @@ export const changePasswordSchema = (locale: LanguagesI) => {
 				required_error: userMessages.document.required[locale],
 			}
 		)
-		.refine(({ confirmPassword, newPassword }) => confirmPassword === newPassword, {
-			message: userMessages.password.invalid[locale],
-			path: ['confirmPassword'],
-		});
+		.refine(
+			({ confirmPassword, newPassword }) =>
+				confirmPassword === newPassword,
+			{
+				message: userMessages.password.invalid[locale],
+				path: ['confirmPassword'],
+			}
+		);
 
 	return schema;
 };
