@@ -35,3 +35,11 @@ declare interface ContractReport {
 	};
 	executive_summary: string;
 }
+declare interface Consultation<ID = string, CONVERSATION = ID> {
+	id: ID;
+	title: string;
+	description: string;
+	date: string;
+	conversation_id: CONVERSATION;
+	status: 'pending' | 'in_progress' | 'completed' | 'cancelled';
+}
